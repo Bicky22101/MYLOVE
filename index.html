@@ -1,0 +1,91 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>For My Love</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background: black;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      position: relative;
+    }
+
+    video#flowerbg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      z-index: 0;
+    }
+
+    .gallery {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      z-index: 2;
+    }
+
+    .gallery img {
+      width: 180px;
+      height: auto;
+      position: absolute;
+      border: 5px solid white;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+    .pic1 { top: 8%; left: 12%; transform: rotate(-10deg); }
+    .pic2 { top: 15%; right: 20%; transform: rotate(7deg); }
+    .pic3 { bottom: 20%; left: 18%; transform: rotate(-6deg); }
+    .pic4 { bottom: 12%; right: 12%; transform: rotate(10deg); }
+    .pic5 { top: 40%; left: 5%; transform: rotate(-5deg); }
+    .pic6 { top: 30%; right: 5%; transform: rotate(12deg); }
+    .pic7 {
+      bottom: 35%; 
+      left: 40%; 
+      transform: rotate(-8deg);
+      width: 4in;
+     }
+    .nav-button {
+      position: fixed;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #ff69b4;
+      color: white;
+      padding: 15px 30px;
+      font-size: 18px;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      z-index: 3;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+  </style>
+</head>
+<body>
+
+<video autoplay muted loop id="flowerbg">
+  <source src="flower-rain.mp4" type="video/mp4">
+  Your browser does not support HTML5 video.
+</video>
+
+<div class="gallery">
+  <img src="IMG-20250306-WA0000.jpg" class="pic1" alt="Pic 1">
+  <img src="IMG-20250113-WA0001.jpg" class="pic2" alt="Pic 2">
+  <img src="IMG_20250419_161614_699.jpg" class="pic3" alt="Pic 3">
+  <img src="WhatsApp Image 2025-03-31 at 00.18.35_4c0ba7b8.jpg" class="pic4" alt="Pic 4">
+  <img src="WhatsApp Image 2025-07-06 at 00.23.29_7e8d1009.jpg" class="pic5" alt="Pic 5">
+  <img src="WhatsApp Image 2025-07-06 at 00.23.29_1841789f.jpg" class="pic6" alt="Pic 6">
+  <img src="IMG-20231215-WA0128.png" class="pic7" alt="Pic 7">
+</div>
+
+<button class="nav-button" onclick="location.href='love.html'">Open My Heart 💌</button>
+
+</body>
+</html>
