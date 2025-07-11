@@ -1,17 +1,19 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>For My Love</title>
+  <title>Love Letter</title>
   <style>
     body {
       margin: 0;
-      padding: 0;
-      overflow: hidden;
       background: black;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      font-family: 'Segoe UI', sans-serif;
+      overflow: hidden;
     }
 
     video#flowerbg {
@@ -24,68 +26,124 @@
       z-index: 0;
     }
 
-    .gallery {
+    .envelope-container {
       position: relative;
-      width: 100vw;
-      height: 100vh;
       z-index: 2;
     }
 
-    .gallery img {
-      width: 180px;
-      height: auto;
-      position: absolute;
-      border: 5px solid white;
-      border-radius: 15px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    .envelope {
+      width: 5in;
+      height: 3.5in;
+      background: url('https://cdn-icons-png.flaticon.com/512/561/561127.png') no-repeat center;
+      background-size: contain;
+      border: none;
+      border-radius: 10px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      transition: transform 1s ease;
+      cursor: pointer;
     }
-    .pic1 { top: 8%; left: 12%; transform: rotate(-10deg); }
-    .pic2 { top: 15%; right: 20%; transform: rotate(7deg); }
-    .pic3 { bottom: 20%; left: 18%; transform: rotate(-6deg); }
-    .pic4 { bottom: 12%; right: 12%; transform: rotate(10deg); }
-    .pic5 { top: 40%; left: 5%; transform: rotate(-5deg); }
-    .pic6 { top: 30%; right: 5%; transform: rotate(12deg); }
-    .pic7 {
-      bottom: 35%; 
-      left: 40%; 
-      transform: rotate(-8deg);
-      width: 4in;
-     }
-    .nav-button {
-      position: fixed;
+
+    .envelope.opened {
+      transform: rotateX(180deg) scale(1.05);
+    }
+
+    .card {
+      position: absolute;
+      top: 60%;
+      width: 70vw;
+      background: white;
+      color: black;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+      opacity: 0;
+      transform: translateY(0);
+      transition: opacity 1s ease, transform 1s ease;
+      z-index: 3;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .card.show {
+      opacity: 1;
+      transform: translateY(-200px);
+    }
+
+    .card img {
+      width: 150px;
+      height: auto;
+      border-radius: 12px;
+      border: 3px solid #ff69b4;
+    }
+
+    .card-text {
+      flex: 1;
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    .celebrate-btn {
+     position: fixed;
       bottom: 30px;
       left: 50%;
       transform: translateX(-50%);
       background: #ff69b4;
-      color: white;
-      padding: 15px 30px;
-      font-size: 18px;
+      color: White;
+      padding: 12px 25px;
+      font-size: 16px;
       border: none;
-      border-radius: 30px;
+      border-radius: 20px;
       cursor: pointer;
       z-index: 3;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     }
   </style>
 </head>
 <body>
+  <video autoplay muted loop id="flowerbg">
+    <source src="flower-rain.mp4" type="video/mp4">
+    Your browser does not support HTML5 video.
+  </video>
 
-<video autoplay muted loop id="flowerbg">
-  <source src="flower-rain.mp4" type="video/mp4">
-  Your browser does not support HTML5 video.
-</video>
+  <div class="envelope-container">
+    <div class="envelope" id="envelope"></div>
+  </div>
 
-<div class="gallery">
-  <img src="IMG-20250306-WA0000.jpg" class="pic1" alt="Pic 1">
-  <img src="IMG-20250113-WA0001.jpg" class="pic2" alt="Pic 2">
-  <img src="IMG_20250419_161614_699.jpg" class="pic3" alt="Pic 3">
-  <img src="WhatsApp Image 2025-03-31 at 00.18.35_4c0ba7b8.jpg" class="pic4" alt="Pic 4">
-  <img src="WhatsApp Image 2025-07-06 at 00.23.29_7e8d1009.jpg" class="pic5" alt="Pic 5">
-  <img src="WhatsApp Image 2025-07-06 at 00.23.29_1841789f.jpg" class="pic6" alt="Pic 6">
-  <img src="IMG-20231215-WA0128.png" class="pic7" alt="Pic 7">
-</div>
+  <div class="card" id="card">
+    <img src="IMG-20250507-WA0000.jpeg" alt="Love Pic">
+    <div class="card-text">
+       Two years ago, destiny brought us together, and since then, my life has changed in the most beautiful way.<br>
+       From shy smiles to deep conversations, every moment with you has been a treasure.<br>
+       We’ve laughed till we cried, and held each other through silent storms.<br>
+       Your presence brings peace to my chaos and warmth to my coldest days.<br>
+        You’re not just my girlfriend — you’re my best friend, my home, my heart.<br>
+      ogether, we’ve built a bond that’s stronger than any challenge.<br>
+      Even in our fights, love always finds its way back.<br>
+      I still remember our first date, your laughter, and how nervous I was.<br>
+      Now, it feels like I’ve known you forever — and still, I fall in love with you every day.<br>
+      Your smile is my sunshine, and your hug is my safe place.<br>
+      You’ve seen me at my worst and stayed, and that means more than words can say.<br>
+      These two years are just the beginning of a forever I want with you.<br>
+       With you, even the ordinary feels magical.<br>
+      Thank you for choosing me, loving me, and growing with me.<br>
+      I love you ❤
+    </div>
+  </div>
 
-<button class="nav-button" onclick="location.href='love.html'">Open My Heart 💌</button>
+  <button class="celebrate-btn" onclick="location.href='celebration.html'">Tap To Celebrate 🎉</button>
 
+  <script>
+    document.getElementById('envelope').addEventListener('click', function () {
+      const envelope = document.getElementById('envelope');
+      const card = document.getElementById('card');
+      envelope.classList.add('opened');
+      setTimeout(() => {
+        card.classList.add('show');
+      }, 800);
+    });
+  </script>
 </body>
 </html>
