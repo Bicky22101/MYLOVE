@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Celebration Cake</title>
+  <style>
+    body {
+      margin: 0;
+      background: #111;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      flex-direction: column;
+      overflow: hidden;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    #bg-video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      z-index: -1;
+    }
+
+    .cake {
+      position: relative;
+      width: 200px;
+      height: 230px;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+      perspective: 1000px;
+    }
+
+    .candle {
+      width: 10px;
+      height: 30px;
+      background: white;
+      position: absolute;
+      top: -40px;
+      left: 45px;
+      z-index: 3;
+      border-radius: 2px;
+    }
+
+    .flame {
+      width: 10px;
+      height: 15px;
+      background: orange;
+      border-radius: 50% 50% 50% 50%;
+      position: absolute;
+      top: -15px;
+      left: 0;
+      animation: flicker 0.4s infinite;
+    }
+
+    @keyframes flicker {
+      0%, 100% { transform: scale(1) rotate(0deg); opacity: 1; }
+      50% { transform: scale(1.2) rotate(5deg); opacity: 0.8; }
+    }
+
+    .layer {
+      background: pink;
+      border: 3px solid white;
+      border-radius: 50% / 20%;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
+      margin-bottom: -10px;
+      transition: transform 1s ease;
+    }
+
+    .layer.bottom {
+      width: 200px;
+      height: 70px;
+      background: #f2a2e8;
+    }
+
+    .layer.middle {
+      width: 150px;
+      height: 60px;
+      background: #a2d5f2;
+    }
+
+    .layer.top {
+      width: 100px;
+      height: 50px;
+      background: #d0f2a2;
+      position: relative;
+    }
+
+    .slice {
+      position: absolute;
+      width: 80px;
+      height: 60px;
+      background: #ffb6c1;
+      top: 100px;
+      left: 0;
+      opacity: 0;
+      transform-style: preserve-3d;
+      transform: rotateY(0deg);
+      transition: all 1.2s ease;
+      z-index: 15;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+      transform-origin: left center;
+      clip-path: polygon(0 0, 100% 10%, 100% 90%, 0% 100%);
+      background-image: linear-gradient(to bottom, #fbc8d4 33%, #fff0f5 33%, #fff0f5 66%, #fbc8d4 66%);
+      border: 2px solid white;
+      border-radius: 6px;
+    }
+
+    .slice.show {
+      transform: translateX(120px) translateY(-80px) rotateY(30deg) rotateZ(5deg);
+      opacity: 1;
+    }
+
+    .message {
+      color: white;
+      font-size: 22px;
+      margin-top: 40px;
+      text-align: center;
+      max-width: 80%;
+      z-index: 2;
+    }
+  </style>
+</head>
+<body>
+  <video id="bg-video" autoplay muted loop>
+    <source src="istockphoto-1282858436-640_adpp_is.mp4" type="video/mp4">
+    Your browser does not support HTML5 video.
+  </video>
+
+  <div class="cake" onclick="cutCake()">
+    <div class="slice" id="slice"></div>
+    <div class="layer top">
+      <div class="candle">
+        <div class="flame"></div>
+      </div>
+    </div>
+    <div class="layer middle"></div>
+    <div class="layer bottom"></div>
+  </div>
+
+  <div class="message">
+    Congratulations Babee 😘😘😘😘!!!<br>
+	Tap the cake to cut a slice and Celebrate our sweet journey of Love together! 🎂💕<br>
+	LOVE YOU AMAR MISTI SONA😘😘💞💞💘
+  </div>
+
+  <script>
+    function cutCake() {
+      const slice = document.getElementById('slice');
+      slice.classList.add('show');
+    }
+  </script>
+</body>
+</html>
